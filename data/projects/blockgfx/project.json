@@ -1,0 +1,7 @@
+{
+    "title": "BlockGFX",
+    "description": "experiments with voxel worlds & lighting techniques using C#, GLFW & Direct3D 11",
+    "date": "5/29/2023",
+    "thumbnailUrl": "thumbnails/blockgfx.png",
+    "repositoryUrl": "https://github.com/redninja106/blockgfx"
+}
