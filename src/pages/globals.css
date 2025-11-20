@@ -6,10 +6,18 @@
     --caption-color: rgb(82, 82, 82);
 }
 
-body {
-    background: #0c0c0c;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
     background: radial-gradient(circle, rgb(6, 11, 19) 0%, rgb(0, 0, 0) 100%);
+}
 
+body {
     margin: 20px;
     color: var(--text-color);
     font: var(--font-tasa-explorer);
