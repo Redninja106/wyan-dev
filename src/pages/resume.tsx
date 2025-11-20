@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { useEffect } from "react";
 
 function ResumePage() {
+    useEffect(() => {
+        document.title = 'Resume - Ryan Andersen'
+    })
+
     return (
         <>
         <p className='caption'>

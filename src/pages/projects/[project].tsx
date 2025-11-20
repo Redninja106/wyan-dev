@@ -4,6 +4,7 @@ import { Project } from '../projects'
 import { marked } from 'marked';
 import { promises as fs } from 'fs'
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export const getStaticPaths = (async () => {
     const projects = await fs.readdir('./data/projects', 'utf8')
@@ -32,6 +33,9 @@ export const getStaticProps = (async (context) => {
 
 function ProjectPage({ project, content }: InferGetStaticPropsType<typeof getStaticProps>) {
     const router = useRouter()
+    useEffect(() => {
+        document.title = `${project.title} - Ryan Andersen`
+    })
     return (
         <div>
             <p className='caption'>

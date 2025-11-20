@@ -1,6 +1,11 @@
 import Link from 'next/link'
+import { useEffect } from 'react';
 
 function Home() {
+    useEffect(() => {
+        document.title = "Home - Ryan Andersen"
+    });
+    
     return (
         <div>
             <div className='title'>

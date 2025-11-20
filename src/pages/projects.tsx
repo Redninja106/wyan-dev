@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { promises as fs } from 'fs'
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next'
+import { useEffect } from 'react'
 
 export interface Project {
     name: string
@@ -52,7 +53,11 @@ export const getStaticProps = (async (context) => {
 
 
 function ProjectsPage({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+    useEffect(() => {
+        document.title = 'Projects - Ryan Andersen'
+    })
     const widgets = projects.map(ProjectWidget)
+
     return (
         <div>
             <p className='caption'>
