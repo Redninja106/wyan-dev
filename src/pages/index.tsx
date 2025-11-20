@@ -22,7 +22,6 @@ function Home() {
                 <li><Link href='https://github.com/Redninja106'>GitHub</Link></li>
                 <li><Link href='https://www.linkedin.com/in/ryan-andersen1/'>LinkedIn</Link></li>
             </ul>
-            <Link href='/albums'>Cool music</Link>
         </div>
     )
 }

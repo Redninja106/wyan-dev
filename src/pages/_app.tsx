@@ -5,6 +5,7 @@ import './globals.css';
 
 const tasaExplorer = TASA_Explorer({
     variable: "--font-tasa-explorer",
+    fallback: ["Times New Roman"]
 })
 
 export default function App({ Component, pageProps }: AppProps) {
