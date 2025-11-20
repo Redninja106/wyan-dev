@@ -14,7 +14,7 @@ body::before {
     right: 0;
     bottom: 0;
     z-index: -1;
-    background: radial-gradient(circle, rgb(6, 11, 19) 0%, rgb(0, 0, 0) 100%);
+    background: radial-gradient(circle, rgb(13, 21, 34) 0%, rgb(0, 0, 0) 100%);
 }
 
 body {
