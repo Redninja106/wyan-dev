@@ -11,7 +11,7 @@ function ResumePage() {
         </span>
         <hr/>
         <Link href="/RyanAndersenResume.pdf" download>download</Link>
-        <embed src="/RyanAndersenResume.pdf" type="application/pdf"></embed>
+        <iframe src="/RyanAndersenResume.pdf"></iframe>
         </>
     )
 }
