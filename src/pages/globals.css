@@ -101,7 +101,8 @@ iframe {
 
 .project-widget-thumbnail {
     width: 400px;
-    height: 250px;
+    aspect-ratio: calc(8/3);
+    max-width: 100%;
     float: right;
     object-fit: cover;
     border-radius: 20px;
