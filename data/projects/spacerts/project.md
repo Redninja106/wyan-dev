@@ -39,14 +39,14 @@ The game supports multiplayer among a reasonable number of players. It uses dete
 
 <h2 id="serialization">Serialization</h2>
 
-<h2 id="shaders">Shaders</h2>
+<h1 id="shaders">Shaders</h1>
 
 I wrote some shaders for game using [SimulationFramework's canvas shaders](). I'm happy with how they came out and I think they add a lot to the look and feel of the game.
 
-<h3 id="black_hole">Black Hole</h3>
+<h2 id="black_hole">Black Hole</h2>
 
 ![black hole](/spacerts/blackhole.png)
-<p class='caption'>You might think this black hole is sideways. Well, I say the camera is.</p>
+<p class='caption'>You might think this black hole is sideways. Well, I think the camera is.</p>
 
 The black hole shader uses raymarching to produce accurate lensing effects. The SDF consists only of the (perfectly cylindrical) eccretion disk, but after each step every ray's direction is distorted towards the black hole (by "gravity"), yielding a wicked looking black hole.
 
@@ -56,7 +56,7 @@ The black hole shader uses raymarching to produce accurate lensing effects. The 
 
 Check out the black hole shader source [here](https://github.com/Redninja106/SpaceRTS/blob/sf3/SpaceGameAgain/Planets/BlackHole.cs).
 
-<h3 id="star_shader">Star</h3>
+<h2 id="star_shader">Star</h2>
 
 ![sun](/spacerts/sun.png)
 <p class='caption'>The star shader</p>
@@ -69,7 +69,7 @@ The corona also uses layers of random noise (5 layers), but it samples based on 
 
 Check out the star shader source [here](https://github.com/Redninja106/SpaceRTS/blob/sf3/SpaceGameAgain/Planets/Star.cs).
 
-<h3 id="galaxy_shader">Galaxy</h3>
+<h2 id="galaxy_shader">Galaxy</h2>
 
 The galaxy shader is again built on random noise (aren't all good shaders?). 
 
@@ -84,3 +84,5 @@ This is done for the integer above and below the actual zoom level, then interpo
 
 ![galaxy2](/spacerts/galaxy2.png)
 <p class='caption'>The galaxy's arm count, curve, shape and more can be modified. In game they are randomly generated.</p>
+
+Check out the galaxy shader source [here](https://github.com/Redninja106/SpaceRTS/blob/sf3/SpaceGameAgain/Rendering/GalaxyShader.cs).
