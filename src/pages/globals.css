@@ -3,7 +3,7 @@
     --background-color-accent: rgb(20, 20, 20);
     --text-color: rgb(174, 178, 184);
     --link-color: rgb(174, 178, 184);
-    --caption-color: rgb(82, 82, 82);
+    --caption-color: rgb(114, 114, 114);
 }
 
 body::before {
@@ -61,11 +61,16 @@ hr {
 }
 
 .markdown-content img {
-    width: 75%;
+    width: 90%;
     height: auto;
-    margin: 0 auto;
+    margin: 20px auto;
     object-fit: cover;
     display: flex;
+}
+
+.markdown-content .caption {
+    margin: auto 0;
+    text-align: center;
 }
 
 .project-widget {
