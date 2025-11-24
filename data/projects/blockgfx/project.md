@@ -1,7 +1,9 @@
 
+<br/>
 <p class='caption'>
-Note: This is one of my oldest graphics projects, check out my more recent experiements with these ideas <a href='/projects/blockgame'>here</a>
+This is one of my oldest graphics projects, check out my more recent experiements with these ideas <a href='/projects/blockgame'>here</a>
 </p>
+<br/>
 Experiments with voxel worlds & lighting techniques using C# & Direct3D 11. Each branch is a different experiment:
 
 # A Starting Point
