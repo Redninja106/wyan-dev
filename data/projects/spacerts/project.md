@@ -1,10 +1,10 @@
 
-#### Table of Contents
-- [Gameplay](#gameplay)
+SpaceRTS is a large scale, data-driven real-time strategy game prototype I worked on over the course of 2024 and 2025.
+
+Some of its features:
 - [Multiplayer](#multiplayer)
-- [Large World](#large_worlds)
-- [Serialization](#serialization)
-- [Saving/Loading](#saving_loading)
+- [Double-Precision to support large worlds](#large_worlds)
+- [Automatic binary serialization (for saving/loading, networking)](#serialization)
 - [Fog of War](#fog_of_war)
 - [Shaders](#shaders)
 - [GUI](#gui)
@@ -13,9 +13,7 @@
 - [Prototypes](#prototypes)
 - [Collision](#collision)
 
-SpaceRTS is a data-driven RTS game prototype I worked on over the course of 2024 and 2025.
-
-<h2 id="gameplay">Gameplay</h2>
+<h2 id="overview">Overview</h2>
 
 ![gameplay](/spacerts/gameplay.png)
 While most of the my time went into the game systems, I did add some basic gameplay systems:
@@ -47,8 +45,7 @@ I wrote some shaders for game using [SimulationFramework's canvas shaders](). I'
 
 The black hole shader uses raymarching to produce gravitational lensing effects. 
 
-![black hole](/spacerts/blackhole.png)
-<p class='caption'>You might think this black hole is sideways. Well, I think the camera is.</p>
+<video controls autoplay playsinline loop src="/spacerts/blackhole.mp4" type="video/mp4"></video>
 
 After each ray step, its direction is distorted towards the black hole (by "gravity"). Even though the SDF consists only of the eccretion disk (a perfect cylinder), the rays travel along a curve, yielding a wicked looking black hole.
 
@@ -61,10 +58,9 @@ Check out the black hole shader source [here](https://github.com/Redninja106/Spa
 
 <h2 id="star_shader">Star</h2>
 
-The star shader is actually two shaders in a trech coat: One for the star itself and another for the corona. 
+The star shader is actually two shaders in a trech coat: one for the star itself and another for the corona. 
 
-![sun](/spacerts/sun.png)
-<p class='caption'>The star shader</p>
+<video controls autoplay playsinline loop src="/spacerts/sun.mp4" type="video/mp4"></video>
 
 The main star uses 12 layers of random noise, each having 3/4 the scale and 2/3 the brightness of the last. The noise is slightly compressed toward the edges to give it the appearance of a ball.
 

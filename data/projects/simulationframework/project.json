@@ -1,7 +1,12 @@
 {
     "title": "SimulationFramework",
     "description": "C# gamedev framework",
-    "date": "11/18/2025",
+    "startDate": "04/24",
+    "stopDate": "04/24",
     "thumbnailUrl": null,
-    "repositoryUrl": "https://github.com/redninja106/simulationframework"
+    "repositoryUrl": "https://github.com/redninja106/simulationframework",
+    "priority": 0,
+    "tags": [
+        "C#", "Shaders"
+    ]
 }

@@ -1,0 +1,13 @@
+{
+    "title": "Programmable Shaders in SimulationFramework",
+    "description": "Building a C# to GLSL compiler",
+    "startDate": "09/23",
+    "stopDate": "07/24",
+    "thumbnailUrl": null,
+    "repositoryUrl": "https://github.com/Redninja106/simulationframework/tree/canvas-shader",
+    "priority": 0,
+    "tags": [
+        "C#", "Graphics", "Shaders", "Compilers"
+    ]
+
+}

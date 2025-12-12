@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next'
-import { Project } from '../projects'
+import { Project, formatDurationString } from '../projects'
 import { marked } from 'marked';
 import { promises as fs } from 'fs'
 import Link from 'next/link';
@@ -16,26 +16,42 @@ export const getStaticPaths = (async () => {
     }
 }) satisfies GetStaticPaths
 
+function wordCountFromHtml(html: string) {
+  html = html.replace(/<(script|style)[\s\S]*?<\/\1>/gi, "");
+  let text = html.replace(/<[^>]+>/g, " ");
+  text = text
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+  text = text.trim().replace(/\s+/g, " ");
+  return text ? text.split(" ").length : 0;
+}
+
 export const getStaticProps = (async (context) => {
     const projectName = context.params!.project as string;
 
     const projectJson = await fs.readFile(`./data/projects/${projectName}/project.json`, 'utf8')
     const projectMarkdown = await fs.readFile(`./data/projects/${projectName}/project.md`, 'utf8')
 
+    const pageContent = await marked.parse(projectMarkdown);
+
     return {
         props: {
             name: projectName,
             project: JSON.parse(projectJson),
-            content: await marked.parse(projectMarkdown) 
+            content: pageContent,
+            wordCount: wordCountFromHtml(pageContent)
         }
     }
 }) satisfies GetStaticProps<{ name: string, project: Project, content: string }>
 
-function ProjectPage({ project, content }: InferGetStaticPropsType<typeof getStaticProps>) {
+function ProjectPage({ project, content, wordCount }: InferGetStaticPropsType<typeof getStaticProps>) {
     const router = useRouter()
     useEffect(() => {
         document.title = `${project.title} - Ryan Andersen`
     })
+
     return (
         <div>
             <p className='caption'>
@@ -46,7 +62,7 @@ function ProjectPage({ project, content }: InferGetStaticPropsType<typeof getSta
             </span>
             <hr />
             <span className='caption'>
-                <span className='caption'>{project.date}</span> // <Link href={project.repositoryUrl} className='caption'>View project source</Link>
+                <span className='caption'>{Math.ceil(wordCount/250)} Min Read</span> // <span className='caption'>{formatDurationString(project)}</span> // <Link href={project.repositoryUrl} className='caption'>View project source</Link>
             </span>
             <div className='markdown-content' dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>

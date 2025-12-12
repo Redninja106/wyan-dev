@@ -6,13 +6,13 @@ This is one of my oldest graphics projects, check out my more recent experiement
 <br/>
 Experiments with voxel worlds & lighting techniques using C# & Direct3D 11. Each branch is a different experiment:
 
-# A Starting Point
+## A Starting Point
 
 The master branch is a basic unlit voxel world. Includes a basic first person character controller and block breaking/placing. It serves as a nice starting point for other experiments.
 
 ![image](https://github.com/Redninja106/BlockGFX/assets/45476006/f1024264-98ff-4b98-91f9-b29c60588b88)
 
-# Branch: deferred
+## Branch: `deferred`
 
 [branch source](https://github.com/Redninja106/BlockGFX/tree/deferred)
 
@@ -20,7 +20,7 @@ The first thing I did was switch to a deferred renderer. I didn't end up doing m
 
 ![image](https://github.com/Redninja106/BlockGFX/assets/45476006/51989ce4-5ffa-459c-94d3-af016b72e011)
 
-# Branch: raycast-lighting
+## Branch: `raycast-lighting`
 
 [branch source](https://github.com/Redninja106/BlockGFX/tree/raycast-lighting)
 
@@ -53,7 +53,7 @@ There's so much more that could be done here:
 - The face texture needs a different layout, since the current one fails if there's more than 1024 faces in a chunk (1024*16 = 16384, which is the max texture width in d3d11).
 - Other random crashes and problems
 
-# Branch: partial-raycast-lighting
+## Branch: `partial-raycast-lighting`
 
 [branch source](https://github.com/Redninja106/BlockGFX/tree/partial-raycast-lighting)
 

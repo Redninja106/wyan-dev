@@ -29,6 +29,38 @@ body {
     text-shadow: .05em .04em 1px rgb(34, 39, 53);
 }
 
+code {
+    background-color: #171b22;
+    border-radius: 7px;
+    padding: 1px 4px;
+}
+
+.tag-button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.tag-button {
+    color: var(--text-color);
+    font: var(--font-tasa-explorer);
+    font-weight: 400;
+    font-size: 20px;
+    
+    background-color: var(--background-color);
+   
+    background: #030508;
+    background: linear-gradient(0deg, rgba(4, 5, 8, 0.5) 0%, rgba(7, 7, 7, 0.5) 100%);
+
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px #4f50533f;
+    cursor: pointer;
+}
+
+
+.active-filter {
+    background-color: var(--caption-color);
+}
+
 a {
     color: var(--link-color);
 }
@@ -68,12 +100,27 @@ hr {
     display: flex;
 }
 
+.markdown-content video {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    object-fit: cover;
+    display: flex;
+}
+
 .markdown-content .caption {
     margin: auto 0;
     text-align: center;
 }
 
+iframe {
+    width: 100%;
+    aspect-ratio: .75;
+    margin: 20px 0px;
+}
+
 .project-widget {
+    position: relative;
     width: auto;
     height: 100%;
     min-height: 250px;
@@ -89,10 +136,8 @@ hr {
     box-shadow: 0px 0px 10px #4f50533f;
 }
 
-iframe {
-    width: 100%;
-    aspect-ratio: .75;
-    margin: 20px 0px;
+.project-widget-text-container {
+    margin-bottom: 28px;
 }
 
 .project-widget-date {
@@ -101,6 +146,10 @@ iframe {
     font-size: 16px;
     color: var(--caption-color);
     margin: 20px;
+}
+
+.project-widget-description {
+    padding: 20px 0px;
 }
 
 .project-widget-link {
@@ -119,4 +168,9 @@ iframe {
     float: right;
     object-fit: cover;
     border-radius: 20px;
+}
+
+.project-widget-tags {
+    position: absolute;
+    bottom: 20px;
 }
