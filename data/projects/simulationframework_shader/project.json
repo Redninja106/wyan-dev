@@ -3,8 +3,8 @@
     "description": "Building a C# to GLSL compiler",
     "startDate": "09/23",
     "stopDate": "07/24",
-    "thumbnailUrl": null,
-    "repositoryUrl": "https://github.com/Redninja106/simulationframework/tree/canvas-shader",
+    "thumbnailUrl": "simulationframework_shader/thumbnail.png",
+    "repositoryUrl": "https://github.com/Redninja106/simulationframework/tree/canvas-shader/src/SimulationFramework/Drawing/Shaders/Compiler",
     "priority": 0,
     "tags": [
         "C#", "Graphics", "Shaders", "Compilers"

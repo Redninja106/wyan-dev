@@ -1,10 +1,27 @@
 import { useRouter } from 'next/router'
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next'
 import { Project, formatDurationString } from '../projects'
-import { marked } from 'marked';
 import { promises as fs } from 'fs'
 import Link from 'next/link';
 import { useEffect } from 'react';
+import markdownit from 'markdown-it';
+import Shiki from '@shikijs/markdown-it'
+
+const md = markdownit({
+    html: true,
+})
+
+md.use(await Shiki({
+    theme: "dark-plus",
+    langs: [
+        "c#",
+        "c",
+        "c++",
+        "glsl",
+        "hlsl",
+        "json"
+    ]
+}))
 
 export const getStaticPaths = (async () => {
     const projects = await fs.readdir('./data/projects', 'utf8')
@@ -34,8 +51,7 @@ export const getStaticProps = (async (context) => {
     const projectJson = await fs.readFile(`./data/projects/${projectName}/project.json`, 'utf8')
     const projectMarkdown = await fs.readFile(`./data/projects/${projectName}/project.md`, 'utf8')
 
-    const pageContent = await marked.parse(projectMarkdown);
-
+    const pageContent = md.render(projectMarkdown)
     return {
         props: {
             name: projectName,
@@ -62,7 +78,7 @@ function ProjectPage({ project, content, wordCount }: InferGetStaticPropsType<ty
             </span>
             <hr />
             <span className='caption'>
-                <span className='caption'>{Math.ceil(wordCount/250)} Min Read</span> // <span className='caption'>{formatDurationString(project)}</span> // <Link href={project.repositoryUrl} className='caption'>View project source</Link>
+                <span className='caption'>{Math.ceil(wordCount/250)} min read</span> // <span className='caption'>{formatDurationString(project)}</span> // <Link href={project.repositoryUrl} className='caption'>View project source</Link>
             </span>
             <div className='markdown-content' dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>

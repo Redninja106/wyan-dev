@@ -33,6 +33,22 @@ code {
     background-color: #171b22;
     border-radius: 7px;
     padding: 1px 4px;
+    text-shadow: .05em .04em 1px rgb(0, 0, 0);
+}
+
+pre {
+    background-color: #bac0cf;
+    padding: 7px 10px;
+    border-radius: 7px;
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .tag-button-container {

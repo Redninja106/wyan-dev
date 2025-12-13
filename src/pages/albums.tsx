@@ -11,7 +11,6 @@ function MusicPage() {
                 Albums
             </span>
             <hr/>
-            
         </>
     )
 }
