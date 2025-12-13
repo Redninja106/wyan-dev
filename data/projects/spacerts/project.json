@@ -1,13 +1,12 @@
 {
     "title": "SpaceRTS",
-    "description": "A RTS space battle game prototype built on a custom engine",
+    "description": "A RTS space battle prototype built on a custom game engine",
     "startDate": "04/24",
     "stopDate": "07/25",
     "thumbnailUrl": "spacerts/thumbnail.png",
     "repositoryUrl": "https://github.com/redninja106/spacerts",
     "priority": 0,
     "tags": [
-        "C#", "Shaders"
+        "C#", "Shaders", "Game Development"
     ]
-
 }

@@ -5,7 +5,7 @@
     "stopDate": "06/23",
     "thumbnailUrl": "thumbnails/blockgfx.png",
     "repositoryUrl": "https://github.com/redninja106/blockgfx",
-    "priority": 0,
+    "priority": -100,
     "tags": [
         "C#", "Voxels", "Graphics"
     ]

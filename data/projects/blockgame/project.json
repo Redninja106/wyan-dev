@@ -1,12 +1,12 @@
 {
     "title": "BlockGame",
     "description": "Voxel game with global illumination",
-    "startDate": "04/24",
-    "stopDate": "05/25",
+    "startDate": "10/25",
+    "stopDate": "12/25",
     "repositoryUrl": "https://github.com/redninja106/blockgame42",
-    "thumbnailUrl": "/albums/even_in_arcadia.jpg",
-    "priority": 0,
+    "thumbnailUrl": "/blockgame/thumbnail.png",
+    "priority": 100,
     "tags": [
-        "C/C++"
+        "C#", "Graphics", "Voxels"
     ]
 }

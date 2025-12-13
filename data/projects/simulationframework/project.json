@@ -1,12 +1,12 @@
 {
     "title": "SimulationFramework",
-    "description": "C# gamedev framework",
-    "startDate": "04/24",
-    "stopDate": "04/24",
-    "thumbnailUrl": null,
+    "description": "A game development framework for C#, designed for fast, low-friction iteration",
+    "startDate": "11/21",
+    "stopDate": "02/25",
+    "thumbnailUrl": "/simulationframework/asteroids.gif",
     "repositoryUrl": "https://github.com/redninja106/simulationframework",
     "priority": 0,
     "tags": [
-        "C#", "Shaders"
+        "C#", "Game Development", "Game Engines"
     ]
 }

@@ -15,7 +15,7 @@ export interface Project {
     tags: string[]
 }
 
-const allTags = ["C#", "C/C++", "Shaders", "Graphics", "Voxels", "Compilers"]
+const allTags = ["C#", "C/C++", "Shaders", "Graphics", "Voxels", "Compilers", "Game Development", "Game Engines"]
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 export function formatDurationString(project: Project, short: boolean = false): string {
@@ -41,8 +41,8 @@ export function formatDurationString(project: Project, short: boolean = false): 
         }
         return `${durationYears}yr ${durationMonths}mo`
     } else {
-        let startDate = `${months[start[0]]} '${start[1]}`
-        let stopDate = isOngoing ? "Present" : `${months[stop[0]]} '${stop[1]}`
+        let startDate = `${months[start[0] - 1]} '${start[1]}`
+        let stopDate = isOngoing ? "Present" : `${months[stop[0] - 1]} '${stop[1]}`
 
         if (durationYears == 0) {
             if (durationMonths == 1) {
