@@ -182,3 +182,4 @@ I ended up writing a ton of shaders for my other project [SpaceRTS](/projects/sp
 ### Conclusion
 
 There are not many libraries out there that let you write shaders in a high level language like C#, and fewer that integrate it into a full game development framework. This was a very complex project, with multiple iterations and hundreds of hours of development over the course of years. I learned a lot about CIL, decompilation, compiler architecture, and more. Worth every minute!
+
