@@ -26,6 +26,7 @@ function Home() {
             <ul>
                 <li><Link href='https://github.com/Redninja106'>GitHub</Link></li>
                 <li><Link href='https://www.linkedin.com/in/ryan-andersen1/'>LinkedIn</Link></li>
+                <li><Link href='https://x.com/whos_wyan'>X/Twitter</Link></li>
             </ul>
         </div>
     )
