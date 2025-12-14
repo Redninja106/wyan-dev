@@ -5,7 +5,7 @@
     "stopDate": "12/25",
     "repositoryUrl": "https://github.com/redninja106/blockgame42",
     "thumbnailUrl": "/blockgame/thumbnail.png",
-    "priority": 100,
+    "priority": -1000,
     "tags": [
         "C#", "Graphics", "Voxels"
     ]

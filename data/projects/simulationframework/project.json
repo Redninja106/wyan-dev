@@ -5,7 +5,7 @@
     "stopDate": "02/25",
     "thumbnailUrl": "/simulationframework/asteroids.gif",
     "repositoryUrl": "https://github.com/redninja106/simulationframework",
-    "priority": 0,
+    "priority": -1000,
     "tags": [
         "C#", "Game Development", "Game Engines"
     ]
