@@ -1,7 +1,3 @@
-![Asteroids Game](/simulationframework_shader/thumbnail.png)
-<p class="caption"><a href="https://github.com/Redninja106/Asteroids">Asteroids</a> was one of the first projects I did using SimulationFramework</p>
-
-
 
 ## Background
 

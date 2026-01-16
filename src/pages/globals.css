@@ -191,3 +191,25 @@ iframe {
     position: absolute;
     bottom: 20px;
 }
+
+.gallery {
+    overflow:hidden;
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.gallery img {
+    height: 250px;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}

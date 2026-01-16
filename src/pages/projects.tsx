@@ -35,15 +35,15 @@ export function formatDurationString(project: Project, short: boolean = false): 
     let durationMonths = durationTotalMonth % 12;
     let durationYears = Math.floor(durationTotalMonth / 12);
 
-    if (short) {
-        if (durationYears == 0) {
-            return `${durationMonths}mo`
-        }
-        return `${durationYears}yr ${durationMonths}mo`
-    } else {
-        let startDate = `${months[start[0] - 1]} '${start[1]}`
-        let stopDate = isOngoing ? "Present" : `${months[stop[0] - 1]} '${stop[1]}`
+    let startDate = `${months[start[0] - 1]} '${start[1]}`
+    let stopDate = isOngoing ? "Present" : `${months[stop[0] - 1]} '${stop[1]}`
 
+    if (short) {
+        if (durationMonths == 1) {
+            return `${startDate}`
+        }
+        return `${startDate} - ${stopDate}`
+    } else {
         if (durationYears == 0) {
             if (durationMonths == 1) {
                 return `${startDate} // ${durationMonths} month`
