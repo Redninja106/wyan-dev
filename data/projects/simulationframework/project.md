@@ -1,7 +1,7 @@
 
 ## Background
 
-I first started teaching myself game development during 9th grade, using [Processing](https://processing.org/). As my knowledge broadened, I started exploring more technologies for my projects, such as Unity or Monogame (even writing my own game template using UWP's CoreWindow and Win2D). While these were obviously more capable than Processing, they all had one major problem - developer friction! getting anything done was a chore: 
+I first started teaching myself game development during 9th grade, using [Processing](https://processing.org/). As my knowledge broadened, I started exploring more technologies for my projects, such as Unity or Monogame (even writing my own game template using UWP's CoreWindow and the Win2D graphics library). While these were obviously more capable than Processing, they all had one major problem - developer friction! getting anything done was a chore: 
 - The unity editor would freeze and crash. 
 - Any 2D rendering in MonoGame beyond sprites was a nightmare involving vertex buffers and effects (I just want to draw a circle!).
 - My own template involved a lot of fighting with UWP and working around the limitations of Win2D. 
