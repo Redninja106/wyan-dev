@@ -7,6 +7,6 @@
     "thumbnailUrl": "/blockgame/thumbnail.png",
     "priority": -1000,
     "tags": [
-        "C#", "Graphics", "Voxels"
+        "C#", "Graphics", "Voxels", "Articles"
     ]
 }
