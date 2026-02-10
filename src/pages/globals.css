@@ -18,7 +18,8 @@ body::before {
 }
 
 body {
-    margin: 20px;
+    margin: 0px;
+    padding: 0px;
     color: var(--text-color);
     font: var(--font-tasa-explorer);
     font-weight: 400;
@@ -71,6 +72,8 @@ pre code {
     border-radius: 40px;
     box-shadow: 0px 0px 10px #4f50533f;
     cursor: pointer;
+    padding: 2px 7px;
+    transition: all 0.3s ease;
 }
 
 
@@ -80,6 +83,10 @@ pre code {
 
 a {
     color: var(--link-color);
+    transition: all 0.3s ease;
+}
+a:hover {
+    filter: brightness(1.2);
 }
 
 .spaced {
@@ -88,6 +95,7 @@ a {
 
 hr {
     box-shadow: 0px 2px 0px rgb(0, 0, 0);
+    box-shadow: 0px 0px 3px 3px #4f50533f;
 }
 
 .caption {
@@ -199,7 +207,11 @@ iframe {
 .track {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite;
+    animation: scroll 75s linear infinite;
+}
+
+@keyframes scroll {
+  to { transform: translateX(-50%); }
 }
 
 .gallery img {
@@ -208,8 +220,20 @@ iframe {
     margin-right: 1rem;
 }
 
-@keyframes scroll {
-  to {
-    transform: translateX(-50%);
-  }
+.social-links {
+    padding: 0px;
+    position: absolute;
+    width: min(1000px, 100%);
+    bottom: 0;
+    overflow-y: hidden;
+}
+
+.social-links hr {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    padding: 7px;
+    
 }
