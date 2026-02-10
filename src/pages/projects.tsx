@@ -15,7 +15,7 @@ export interface Project {
     tags: string[]
 }
 
-const allTags = ["Articles", "C#", "C/C++", "Shaders", "Graphics", "Voxels", "Compilers", "Game Development", "Game Engines"]
+const allTags = ["Articles", "C#", "C/C++", "Shaders", "Graphics", "Voxels", "Compilers", "Game Development", "Game Engines", "LLVM", "Simulation"]
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 export function formatDurationString(project: Project, short: boolean = false): string {

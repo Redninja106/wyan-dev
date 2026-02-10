@@ -1,0 +1,12 @@
+{
+    "title": "K Programming language",
+    "description": "A C-like programming language built in plain C with no dependencies",
+    "startDate": "01/25",
+    "stopDate": "02/25",
+    "thumbnailUrl": "/k_lang/thumbnail.png",
+    "repositoryUrl": "https://github.com/redninja106/k-lang",
+    "priority": -1000,
+    "tags": [
+        "C/C++", "Compilers"
+    ]
+}

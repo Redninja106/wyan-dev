@@ -1,0 +1,12 @@
+{
+    "title": "OpenGL Experiments",
+    "description": "A small OpenGL renderer written in C#",
+    "startDate": "01/23",
+    "stopDate": "02/23",
+    "thumbnailUrl": "/opengl_experiments/thumbnail.png",
+    "repositoryUrl": "https://github.com/Redninja106/openglexperiments",
+    "priority": 0,
+    "tags": [
+        "C#", "Graphics"
+    ]
+}

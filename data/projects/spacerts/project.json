@@ -5,7 +5,7 @@
     "stopDate": "07/25",
     "thumbnailUrl": "spacerts/thumbnail.png",
     "repositoryUrl": "https://github.com/redninja106/spacerts",
-    "priority": 0,
+    "priority": 90,
     "tags": [
         "C#", "Shaders", "Game Development", "Articles"
     ]

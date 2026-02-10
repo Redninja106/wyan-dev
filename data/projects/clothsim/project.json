@@ -1,0 +1,12 @@
+{
+    "title": "ClothSim",
+    "description": "A fun little experiment with Verlet integration ",
+    "startDate": "03/23",
+    "stopDate": "03/23",
+    "thumbnailUrl": "/clothsim/thumbnail.png",
+    "repositoryUrl": "https://github.com/redninja106/clothsim",
+    "priority": -1000,
+    "tags": [
+        "C#", "Simulation"
+    ]
+}

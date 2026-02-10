@@ -5,7 +5,7 @@
     "stopDate": "07/24",
     "thumbnailUrl": "simulationframework_shader/thumbnail.png",
     "repositoryUrl": "https://github.com/Redninja106/simulationframework/tree/canvas-shader/src/SimulationFramework/Drawing/Shaders/Compiler",
-    "priority": 0,
+    "priority": 100,
     "tags": [
         "C#", "Graphics", "Shaders", "Compilers", "Articles"
     ]
