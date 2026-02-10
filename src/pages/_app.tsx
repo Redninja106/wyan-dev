@@ -10,7 +10,7 @@ const tasaExplorer = TASA_Explorer({
 
 function Footer() {
   return (
-    <div className='social-links'>
+    <div className='footer-links'>
       <hr/>
       <a href='https://github.com/Redninja106' target='_blank' rel='noopener noreferrer' className='social-icon'>
         <img src='/octicon.svg' alt='GitHub' />
@@ -21,6 +21,9 @@ function Footer() {
       <a href='https://x.com/whos_wyan' target='_blank' rel='noopener noreferrer' className='social-icon'>
         <img src='/x.svg' alt='X/Twitter' />
       </a>
+      <a className='caption'>© 2026 Ryan Andersen</a>
+      <a className='caption' href='/resume'>my resume</a>
+      <a className='caption' href='mailto:ryan@wyan.dev'>email me</a>
     </div>
   )
 }
