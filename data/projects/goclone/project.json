@@ -3,7 +3,7 @@
     "description": "A go-like programming language built in C# using LLVM",
     "startDate": "05/24",
     "stopDate": "08/24",
-    "thumbnailUrl": "/goclone/thumbnail.png",
+    "thumbnailUrl": "/projects/goclone/thumbnail.png",
     "repositoryUrl": "https://github.com/redninja106/GoClone",
     "priority": -1000,
     "tags": [

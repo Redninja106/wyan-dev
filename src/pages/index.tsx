@@ -1,28 +1,34 @@
 import Link from 'next/link'
 import { useEffect } from 'react';
 
-function Gallery() {
+function GalleryImage(key: number, src: string, href: string, name: string) {
     return (
-        <div className='gallery'>
-            <div className='track'>
-                
-                <a href="/projects/blockgame"><img src='blockgame/thumbnail.png'/></a>
-                <a href="/projects/spacerts"><img src='spacerts/thumbnail.png'/></a>
-                <a href="/projects/blockgame"><img src='blockgame/cave.png'/></a>
-                <a href="/projects/blockgame"><img src='blockgame/ores.png'/></a>
-                <a href="/projects/spacerts"><img src='spacerts/saturn.png'/></a>
-                <a href="/projects/spacerts"><img src='spacerts/jupiter.png'/></a>
+        <a className='gallery-box' href={href} key={key}>
+            <img src={src} />
+            <span className='gallery-caption caption'>{name}</span>
+        </a>
+    )
+}
 
-                <a href="/projects/blockgame"><img src='blockgame/thumbnail.png'/></a>
-                <a href="/projects/spacerts"><img src='spacerts/thumbnail.png'/></a>
-                <a href="/projects/blockgame"><img src='blockgame/cave.png'/></a>
-                <a href="/projects/blockgame"><img src='blockgame/ores.png'/></a>
-                <a href="/projects/spacerts"><img src='spacerts/saturn.png'/></a>
-                <a href="/projects/spacerts"><img src='spacerts/jupiter.png'/></a>
+function Gallery() {
+    const items = [
+        { src: '/projects/blockgame/thumbnail.png', href: '/projects/blockgame', title: 'BlockGame' },
+        { src: '/projects/spacerts/thumbnail.png', href: '/projects/spacerts', title: 'SpaceRTS' },
+        { src: '/projects/blockgame/cave.png', href: '/projects/blockgame', title: 'BlockGame' },
+        { src: '/projects/spacerts/saturn.png', href: '/projects/spacerts', title: 'SpaceRTS' },
+        { src: '/projects/blockgame/ores.png', href: '/projects/blockgame', title: 'BlockGame' },
+        { src: '/projects/spacerts/jupiter.png', href: '/projects/spacerts', title: 'SpaceRTS' },
+    ];
 
+    const loopItems = [...items, ...items];
+
+    return (
+        <div className="gallery">
+            <div className="track">
+                {loopItems.map((item, i) => GalleryImage(i, item.src, item.href, item.title))}
             </div>
         </div>
-    )
+    );
 }
 
 function Home() {
@@ -38,12 +44,25 @@ function Home() {
             <hr/>
             <Gallery></Gallery>
             <p>
-            Computer graphics, compilers, game engines, and every other kind of programming from Long Island, NY.
+                Computer graphics, compilers, and game engines from Long Island, NY.
             </p>
             <p>
-            <b><Link href='/projects'>Check out my projects</Link></b>
-            <span> or </span>
-            <b><Link href='/resume'>Read my resume</Link></b>
+                <b><Link href='/projects'>Check out my projects</Link></b>
+                <span>, </span>
+                <b><Link href='/articles'>read my articles</Link></b>
+                <span>, or </span>
+                <b><Link href='/resume'>view my resume</Link></b>.
+            </p>
+            <p className='featured'>
+                Featured: 
+                <br/>
+                - <Link href='/articles/simulationframework_shader'>Compiling C# to HLSL</Link> <span className='caption'>(Programmable Shaders in SimulationFramework)</span>
+                <br/>
+                - <Link href='/projects/blockgame'>Block Game</Link> <span className='caption'>(Voxel renderer with path-traced global illumination and irradiance caching)</span>
+                <br/>
+                - <Link href='/articles/spaceexplorationgame'>SpaceExplorationGame</Link> <span className='caption'>(1:1 scale physically based planet rendering with atmospheres and clouds)</span>
+                <br/>
+                - <Link href='/projects/spacerts'>SpaceRTS</Link> <span className='caption'>(deterministic multiplayer RTS engine)</span>
             </p>
         </div> 
     )

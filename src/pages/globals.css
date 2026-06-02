@@ -200,10 +200,6 @@ iframe {
     bottom: 20px;
 }
 
-.gallery {
-    overflow:hidden;
-}
-
 .track {
     display: flex;
     width: max-content;
@@ -214,10 +210,32 @@ iframe {
   to { transform: translateX(-50%); }
 }
 
+.gallery {
+    overflow:hidden;
+}
+
+.gallery a {
+    overflow: hidden;
+    position: relative;
+}
+
 .gallery img {
     height: 250px;
-    flex: 0 0 auto;
     margin-right: 1rem;
+}
+
+.gallery-caption {
+    overflow: hidden;
+    position: absolute;
+    bottom:10px;
+    right:25px;
+    text-align: right;
+    z-index: 1;
+    background: radial-gradient( 
+        ellipse, 
+        rgba(.1, .1, .1, 0.5) 0%, 
+        rgba(0, 0, 0, 0) 80%
+    );
 }
 
 .footer-links {
@@ -244,4 +262,10 @@ iframe {
 
 .main-page-content a {
     text-shadow: 0px 0px 8px var(--text-color);
+}
+.featured br {
+    margin-bottom: .25em;
+}
+.featured .caption {
+    color: rgb(144, 144, 154);
 }

@@ -6,7 +6,7 @@ import { loadProjectPageInfo } from '@/server_common'
 
 export const getStaticProps = (async (context) => {
     return {
-        props: await loadProjectPageInfo('./data/projects', 'project.json')
+        props: await loadProjectPageInfo('./data/articles', 'article.json')
     }
 }) satisfies GetStaticProps<{ projects: Project[], tags: string[] }>
 
@@ -18,12 +18,11 @@ function ProjectsPage({ projects, tags }: InferGetStaticPropsType<typeof getStat
 
     const tagButtons = tags.map((tag) => TagButton(tag, filter, (f) => setFilter(f)))
 
-    var shownProjects = projects.filter((p) => p.archived != true)
+    var shownProjects = projects
     if (filter != null) {
         shownProjects = shownProjects.filter((p) => p.tags.includes(filter))
     }
-    const widgets = shownProjects.map(p => ProjectWidget(p, 'projects'))
-    const archived = projects.filter((p) => p.archived == true)
+    const widgets = shownProjects.map((p) => ProjectWidget(p, 'articles'))
 
     return (
         <div>
@@ -31,17 +30,11 @@ function ProjectsPage({ projects, tags }: InferGetStaticPropsType<typeof getStat
                 <Link href='/'>Ryan Andersen</Link> /
             </p>
             <span className='subtitle'>
-                Projects 
+                Articles 
             </span>
             <hr/>
             <div className='tag-button-container'> <span className='caption'>tags:</span> {tagButtons}</div>
             {widgets}
-            <span className='caption'>Archived: </span>
-            {archived.map((p,i) => (<>
-                <a className='caption' key={i} href={`projects/${p.name}`}>{p.title}</a>
-                <span> </span>
-                </>
-                ))}
         </div>
     )
 }

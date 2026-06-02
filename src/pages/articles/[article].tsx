@@ -2,10 +2,10 @@ import { useRouter } from 'next/router'
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next'
 import { Project, formatDurationString, wordCountFromHtml, ProjectWidget } from '@/common'
 import { promises as fs } from 'fs'
+import Link from 'next/link';
 import { useEffect } from 'react';
 import markdownit from 'markdown-it';
 import Shiki from '@shikijs/markdown-it'
-import Link from 'next/link';
 
 const md = markdownit({
     html: true,
@@ -24,23 +24,23 @@ md.use(await Shiki({
 }))
 
 export const getStaticPaths = (async () => {
-    const projects = await fs.readdir('./data/projects', 'utf8')
+    const projects = await fs.readdir('./data/articles', 'utf8')
     return {
         paths: projects.map((p) => {
-            return { params: { project: p } }
+            return { params: { article: p } }
         }),
         fallback: false,
     }
 }) satisfies GetStaticPaths
 
-
 export const getStaticProps = (async (context) => {
-    const projectName = context.params!.project as string;
+    const projectName = context.params!.article as string;
 
-    const projectJson = await fs.readFile(`./data/projects/${projectName}/project.json`, 'utf8')
-    const projectMarkdown = await fs.readFile(`./data/projects/${projectName}/project.md`, 'utf8')
+    const projectJson = await fs.readFile(`./data/articles/${projectName}/article.json`, 'utf8')
+    const projectMarkdown = await fs.readFile(`./data/articles/${projectName}/article.md`, 'utf8')
 
     const pageContent = md.render(projectMarkdown)
+
     return {
         props: {
             name: projectName,
@@ -60,7 +60,7 @@ function ProjectPage({ name, project, content, wordCount }: InferGetStaticPropsT
     return (
         <div>
             <p className='caption'>
-                <Link href='/'>Ryan Andersen</Link> / <Link href='/projects'>Projects</Link> /
+                <Link href='/'>Ryan Andersen</Link> / <Link href='/articles'>Articles</Link> /
             </p>
             <span className='subtitle'>
                 {project.title}

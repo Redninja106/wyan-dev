@@ -1,4 +1,4 @@
-![Iterations - inversion 2](/simulationframework_shader/thumbnail.png)
+![Iterations - inversion 2](/articles/simulationframework_shader/thumbnail.png)
 <p class="caption"><a href="https://www.shadertoy.com/view/4t3SzN">Iterations - inversion 2</a> ported to C# <a href="https://github.com/Redninja106/simulationframework/blob/b2f90d920b112b75568a71c6216888a20631b5ff/examples/CanvasShaders/Program.cs#L48">here</a></p>
 
 About a year after I started developing SimulationFramework, someone on the discord server suggested adding programmable shaders. I thought this would be a really powerful feature (and it would be very interesting to implement) so I started looking into it. I ended up with a pretty unique and powerful solution, compiling C# to GLSL at runtime.
@@ -6,37 +6,37 @@ About a year after I started developing SimulationFramework, someone on the disc
 ## The Problems with the Usual Suspects
 
 My first thought was to simply allow the user to provide the library some HLSL or GLSL code to run (like p5.js). However, I found this didn't align with SimulationFramework's developer-friction-free design philosophy:
-- Requires the user to learn another programming language
-- Binding uniforms by name is annoying
-- Keeping struct definitions in sync between host and shader code is annoying
-- IDE support in shaders is not very good
-- Not cross-platform (without bringing in a dependency on a shader cross-compiler)
+- It requires the user to learn another programming language.
+- Binding uniforms using string-literal names is annoying.
+- Keeping struct definitions in sync between host and shader code is annoying.
+- IDE support for shaders is not very good.
+- Not cross-platform (without bringing in a dependency on a shader cross-compiler).
 
 ## Enter C#
 
 After evaluating a few options I realized only one language checked every box: C#! 
-- The user already programming in C#
-- It's cross-platform and has great IDE support
+- The user already programming in C#.
+- It's cross-platform and has great IDE support.
 - Everything being the same language means that:
-    - Uniforms can be set directly
+    - Uniforms can be set directly.
     - Struct definitions don't need to be duplicated.
     
 Sounds great! Except there are no graphics APIs that accept C# as a shader language. So, like anyone else would in this situation, I wrote my own compiler.
 
 ## The Plan
 
-The problem was simple: convert C# to GLSL shader code to be run on the GPU. The solution however, was very much not.
+The problem was simple: convert C# to GLSL shader code to be run on the GPU. The solution, however, was very much not.
 
 First, I had to decide between compile-time and runtime compilation. I found compile-time projects involved a lot of build system or source generator trickery. I didn't want to wrestle with that, and I especially didn't want to force any of that wrestling upon the user. 
 
-Also, a lot of its benefits (ie skipping long compile times at app startup) didn't really matter in the context of SimulationFramework, which is meant for building small prototypes quickly. Runtime compilation gives the library full control over the compilation process, allowing me to ensure the user doesn't have to deal with managing separate shader sources or build systems.
+Also, a lot of its benefits (i.e. skipping long compile times at app startup) didn't really matter in the context of SimulationFramework, which is meant for building small prototypes quickly. Runtime compilation gives the library full control over the compilation process, allowing me to ensure the user doesn't have to deal with managing separate shader sources or build systems.
 
-Next I had to figure out how to actually retrieve the user's code. I looked into a few solutions, such as `System.Linq.Expressions`'s expression capturing (which only works for lambdas with a single line). I ultimately decided on `MethodBody.GetILAsByteArray` for a few reasons:
-- Simple code from non-user libraries can be included in shaders with little thought
-- I avoided needing to parse anything
-- I got support for some high level language features (ie switch expressions) for free
+Next I had to figure out how to actually retrieve the user's code. I looked into a few solutions, such as `System.Linq.Expressions`'s expression capturing (which unfortunately only works for lambdas with a single line). I ultimately decided on `MethodBody.GetILAsByteArray` for a few reasons:
+- Simple code from non-user libraries can be included in shaders with little thought.
+- I avoided needing to parse anything.
+- I got support for some high level language features (ie switch expressions, with expressions) for free.
 
-The only draw back is now the user code is in CIL (C#'s bytecode language) instead of a syntax tree, this complicates the compiler a lot, but I think for SimulationFramework it's worth it.
+The only drawback is now the user code is in CIL (C#'s bytecode language) instead of a syntax tree. This complicated the compiler by a good margin, but for SimulationFramework it was worth it.
 
 ## The API
 
@@ -95,7 +95,7 @@ The compilation pipeline for a single method consists of a few stages:
 
 First, the IL from `MethodBody.GetILAsByteArray` is disassembled into a list of CIL instructions. This was pretty simple to implement since CIL has a relatively simple format and there are a ton of good resources online about it.
 
-![CIL disassembly](/simulationframework_shader/cil.png)
+![CIL disassembly](/articles/simulationframework_shader/cil.png)
 <p class='caption'>CIL for a C# shader disassembled by the compiler</p>
 
 ### Control Flow Reconstruction
@@ -112,7 +112,7 @@ After a little bit of extra effort required to make everything play nice (look a
 
 Some of the control flow algorithms came to be pretty complicated and hard to debug. So I wrote a DGML exporter for the shader graphs so they could be opened in visual studio.
 
-![DGML in visual studio](/simulationframework_shader/dgml.png)
+![DGML in visual studio](/articles/simulationframework_shader/dgml.png)
 <p class='caption'>A DGML graph from the shader compiler viewed in visual studio</p>
 
 This made debugging issues with the control flow reconstruction about ten times easier. I would have missed a lot of bugs had I not done this. Good debug tools are one of the most underappreciated parts of any project.
@@ -147,7 +147,7 @@ The post processing stage simplifies and optimizes the syntax tree before the em
 
 The final step of method compilation is to walk the shader tree generated by the expression builder and convert it to shader code for the target platform. This is just a simple graph visitor that writes matching GLSL syntax to a stream as it visits nodes. Some special care was needed to prefix identifiers that conflict with keywords and map intrinsic methods to their language-specific names.,  
 
-![Generated GLSL code](/simulationframework_shader/glsl.png)
+![Generated GLSL code](/articles/simulationframework_shader/glsl.png)
 <p class='caption'>An example glsl function generated by the compiler. It's not pretty but it's valid GLSL!</p>
 
 The resulting GLSL is really ugly, with a lot of overcomplicated control flow and no local variable names, but it works!
@@ -177,7 +177,7 @@ The implementation is surpisingly simple! It uses a `ConditionalWeakTable` to al
 
 I ended up writing a ton of shaders for my other project [SpaceRTS](/projects/spacerts#shaders), to render stars, black holes, and galaxies. The fog of war system also uses shaders extensively.
 
-![SpaceRTS black hole](/simulationframework_shader/blackhole.png)
+![SpaceRTS black hole](/articles/simulationframework_shader/blackhole.png)
 
 ### Conclusion
 
